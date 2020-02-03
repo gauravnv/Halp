@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    Padding dimensions -->
+    <dimen name="padding_small">6dp</dimen>
+    <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_med_large">12dp</dimen>
+
+    <!-- Margin dimensions -->
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_small">6dp</dimen>
+
+    <dimen name="text_bold_size">20sp</dimen>
+    <dimen name="text_medium_size">16sp</dimen>
+    <dimen name="list_item_height">72dp</dimen>
+    <dimen name="margin_tiny">4dp</dimen>
+
+</resources>

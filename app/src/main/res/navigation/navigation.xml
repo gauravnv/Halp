@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/result_view_fragment">
+
+    <fragment
+        android:id="@+id/result_view_fragment"
+        android:name="com.example.halp.resultView.ResultViewFragment"
+        android:label="fragment_result_view"
+        tools:layout="@layout/result_view_fragment">
+        <action
+            android:id="@+id/action_resultViewFragment_to_resultDetail"
+            app:destination="@id/result_detail_fragment" />
+        <argument
+            android:name="resultKey"
+            app:argType="string" />
+        <argument
+            android:name="alias"
+            app:argType="string" />
+        <argument
+            android:name="business_name"
+            android:defaultValue="Business Name"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/result_detail_fragment"
+        android:name="com.example.halp.resultDetail.resultDetail"
+        android:label="fragment_result_detail"
+        tools:layout="@layout/result_detail_fragment">
+        <argument
+            android:name="resultKey"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_resultDetail_to_resultViewFragment2"
+            app:destination="@id/result_view_fragment" />
+    </fragment>
+</navigation>

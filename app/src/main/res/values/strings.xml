@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Halp</string>
+    <string name="star_rating">Stars in terms of rating</string>
+    <string name="business_picture">Picture of the business</string>
+    <string name="business_name_string"> Bake n\' Flake</string>
+    <string name="dollars_and_types_string">$$$$ - Bakeries, Cafes, Desserts</string>
+    <string name="num_reviews_string">7451 Reviews</string>
+    <string name="open_hours_info_string">Open until 6:30 PM</string>
+    <string name="search_placeholder">Search for Business</string>
+    <string name="text_3">This is where the info about the business goes</string>
+    <string name="business_address">155 Wellington St.</string>
+    <string name="dollar_amount">$$$$$</string>
+    <string name="string_dollar_amount">$$$$</string>
+    <string name="business_category_string">Bakery, Breakfast</string>
+</resources>

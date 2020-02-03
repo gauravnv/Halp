@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="ResultViewModel"
+            type="com.example.halp.resultView.ResultViewModel" />
+    </data>
+
+
+    <FrameLayout
+        android:id="@+id/result_view_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".resultView.ResultViewFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foregroundGravity="bottom|center_vertical|clip_horizontal|fill_vertical|right|center_horizontal|fill">
+
+            <LinearLayout
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="95dp"
+                android:background="@color/red"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/searchForBusiness"
+                    android:layout_width="333dp"
+                    android:layout_height="54dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin_small"
+                    android:autofillHints="Sushi"
+                    android:background="@drawable/edit_text"
+                    android:drawable="@drawable/ic_search"
+                    android:ems="10"
+                    android:foregroundGravity="center_vertical|center|fill"
+                    android:gravity="center|fill|center_vertical"
+                    android:hint="@string/search_placeholder"
+                    android:inputType="textShortMessage|textLongMessage|textAutoCorrect|textFilter|textPersonName|text|textCapSentences|textAutoComplete|textImeMultiLine"
+                    android:padding="@dimen/padding_medium"
+                    tools:targetApi="o" />
+
+                <ImageButton
+                    android:id="@+id/search_icon"
+                    android:layout_width="0dp"
+                    android:layout_height="58dp"
+                    android:layout_gravity="center|center_horizontal|center_vertical"
+                    android:layout_margin="0dp"
+                    android:layout_weight="1.5"
+                    android:background="#03830404"
+                    android:contentDescription="@android:string/search_go"
+                    android:cropToPadding="true"
+                    app:srcCompat="@drawable/ic_search" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/result_grid"
+                android:layout_width="412dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>
