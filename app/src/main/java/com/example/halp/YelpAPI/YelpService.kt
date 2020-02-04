@@ -11,5 +11,12 @@ public interface YelpService {
     fun searchRestaurants(
         @Header("Authorization") authHeader: String,
         @Query("term") searchTerm: String,
-        @Query("location") location: String) : Call<YelpSearchResult>
+        @Query("location") location: String,
+        @Query("limit") limit: Int,
+        @Query("sort_by") distance: String) : Call<YelpSearchResult>
+
+    @GET("businesses/")
+    fun getBusinessDetails(
+        @Header("Authorization") authHeader: String,
+        @Query("id") id: String) : Call<YelpSearchResult>
 }

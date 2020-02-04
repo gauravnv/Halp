@@ -8,7 +8,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.result_view_fragment)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().run {
                 replace(R.id.result_view_fragment, ResultViewFragment())

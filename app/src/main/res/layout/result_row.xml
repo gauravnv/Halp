@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/business_picture"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:contentDescription="@string/business_picture"
         android:foregroundGravity="fill_horizontal|center_vertical|clip_horizontal|center|fill_vertical|clip_vertical|center_horizontal|fill"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:gravity="clip_horizontal|center|clip_vertical|center_horizontal|fill|fill_horizontal|center_vertical|fill_vertical"
-        android:padding="@dimen/padding_small"
+        android:gravity="fill|center_vertical|fill_vertical"
         android:text="@string/business_name_string"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -52,11 +51,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:contentDescription="@string/star_rating"
+        android:forceDarkAllowed="false"
         android:numStars="5"
         android:rating="4.5"
         android:stepSize="0.5"
         app:layout_constraintStart_toStartOf="@+id/business_name"
-        app:layout_constraintTop_toBottomOf="@+id/business_name" />
+        app:layout_constraintTop_toBottomOf="@+id/business_name"
+        android:progressTint="@color/red"
+        android:progressBackgroundTint="@color/gray_500" />
+
 
     <TextView
         android:id="@+id/num_reviews_text"
@@ -86,7 +89,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="clip_horizontal|center|clip_vertical|center_horizontal|fill|fill_horizontal|center_vertical|fill_vertical"
-        android:padding="@dimen/padding_small"
         android:text="@string/business_address"
         app:layout_constraintStart_toStartOf="@+id/business_name"
         app:layout_constraintTop_toBottomOf="@+id/rating_stars" />

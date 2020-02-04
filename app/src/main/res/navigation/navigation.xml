@@ -16,13 +16,6 @@
         <argument
             android:name="resultKey"
             app:argType="string" />
-        <argument
-            android:name="alias"
-            app:argType="string" />
-        <argument
-            android:name="business_name"
-            android:defaultValue="Business Name"
-            app:argType="string" />
     </fragment>
 
     <fragment
@@ -34,7 +27,7 @@
             android:name="resultKey"
             app:argType="string" />
         <action
-            android:id="@+id/action_resultDetail_to_resultViewFragment2"
+            android:id="@+id/action_resultDetail_to_resultViewFragment"
             app:destination="@id/result_view_fragment" />
     </fragment>
 </navigation>

@@ -4,17 +4,20 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.halp.R
-import com.example.halp.YelpAPI.YelpRestaurant
-import com.example.halp.database.ResultRow
+import com.example.halp.YelpAPI.YelpBusiness
 import kotlinx.android.synthetic.main.result_row.view.*
 
-class ResultViewAdapter(val context: Context?, val businesses: List<YelpRestaurant>) :
+class ResultViewAdapter(val context: Context?,
+                        val businesses: List<YelpBusiness>,
+                        val findNavController: NavController) :
     RecyclerView.Adapter<ResultViewAdapter.ViewHolder>() {
 
     // Create new views (invoked by the layout manager)
@@ -31,7 +34,7 @@ class ResultViewAdapter(val context: Context?, val businesses: List<YelpRestaura
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(business: YelpRestaurant) {
+        fun bind(business: YelpBusiness) {
             itemView.business_name.text = business.name
             itemView.rating_stars.rating = business.rating.toFloat()
             itemView.num_reviews_text.text = "${business.numReviews} Reviews"
@@ -42,7 +45,7 @@ class ResultViewAdapter(val context: Context?, val businesses: List<YelpRestaura
             if (context != null) {
                 Glide.with(context).load(business.imageUrl).apply(
                     RequestOptions().transforms(
-                        CenterCrop(), RoundedCorners(20)
+                        CenterCrop(), RoundedCorners(15)
                     )).into(itemView.business_picture)
             }
         }

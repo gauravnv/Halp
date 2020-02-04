@@ -4,10 +4,25 @@ import com.google.gson.annotations.SerializedName
 
 data class YelpSearchResult(
     @SerializedName("total") val total: Int,
-    @SerializedName("businesses") val restaurants: List<YelpRestaurant>
+    @SerializedName("businesses") val businesses: List<YelpBusiness>
 )
 
-data class YelpRestaurant(
+data class YelpBusinessDetail(
+    val name: String,
+    val rating: Double,
+    val price: String,
+    val location: YelpLocation,
+    val categories: List<YelpCategory>,
+    val isClosed: Boolean,
+    @SerializedName("id") val id: String,
+    @SerializedName("review_count") val numReviews: Int,
+    @SerializedName("distance") val distanceInMeters: Double,
+    @SerializedName("image_url") val imageUrl: String,
+    @SerializedName("transactions") val transactions: String,
+    @SerializedName("businesses") val businesses: List<YelpBusiness>
+)
+
+data class YelpBusiness(
     val name: String,
     val rating: Double,
     val price: String,
@@ -18,9 +33,8 @@ data class YelpRestaurant(
     val location: YelpLocation
 ) {
     fun displayDistance(): String {
-        val milesPerMeter = 0.000621371
-        val distanceInMiles = "%.2f".format(distanceInMeters * milesPerMeter)
-        return "$distanceInMiles mi"
+        val distanceInKm = "%.2f".format(distanceInMeters / 1000)
+        return "$distanceInKm km"
     }
 }
 
