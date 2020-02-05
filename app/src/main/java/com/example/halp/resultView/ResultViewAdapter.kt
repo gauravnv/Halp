@@ -16,8 +16,7 @@ import com.example.halp.YelpAPI.YelpBusiness
 import kotlinx.android.synthetic.main.result_row.view.*
 
 class ResultViewAdapter(val context: Context?,
-                        val businesses: List<YelpBusiness>,
-                        val findNavController: NavController) :
+                        val businesses: List<YelpBusiness>) :
     RecyclerView.Adapter<ResultViewAdapter.ViewHolder>() {
 
     // Create new views (invoked by the layout manager)

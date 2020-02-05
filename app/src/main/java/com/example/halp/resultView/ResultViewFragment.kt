@@ -26,7 +26,6 @@ class ResultViewFragment : Fragment() {
     private lateinit var adapter: RecyclerView.Adapter<*>
     private lateinit var binding: ResultViewFragmentBinding
 
-
     override fun onCreateView(inflater: LayoutInflater,
                           container: ViewGroup?,
                           savedInstanceState: Bundle?): View? {
@@ -39,7 +38,7 @@ class ResultViewFragment : Fragment() {
 
 
         val businesses = mutableListOf<YelpBusiness>()
-        adapter = ResultViewAdapter(this.context, businesses, findNavController())
+        adapter = ResultViewAdapter(this.context, businesses)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this.context)
 
