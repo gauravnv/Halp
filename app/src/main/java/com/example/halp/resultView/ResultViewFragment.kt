@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,12 +19,10 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.example.halp.databinding.ResultViewFragmentBinding
 
-class ResultViewFragment : Fragment() {
+class ResultViewFragment : Fragment(), ResultViewAdapter.onItemClickListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RecyclerView.Adapter<*>
-    private lateinit var binding: ResultViewFragmentBinding
 
     override fun onCreateView(inflater: LayoutInflater,
                           container: ViewGroup?,
@@ -38,7 +36,7 @@ class ResultViewFragment : Fragment() {
 
 
         val businesses = mutableListOf<YelpBusiness>()
-        adapter = ResultViewAdapter(this.context, businesses)
+        adapter = ResultViewAdapter(this.context, businesses, this)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this.context)
 
@@ -70,52 +68,15 @@ class ResultViewFragment : Fragment() {
         })
 
         return rootView
+    }
 
+    override fun onItemClicked(business: YelpBusiness) {
+        Toast.makeText(this.context, "Business name ${business.name} \n Location:${business.location} \n ID: ${business.b_ID}",
+            Toast.LENGTH_LONG)
+            .show()
+        Log.i("BUSINESS_", business.name)
 
-        // Get a reference to the binding object and inflate the fragment views.
-//        val binding: ResultViewFragmentBinding = DataBindingUtil.inflate(
-//            inflater, R.layout.result_view_fragment, container, false)
-//
-//
-//
-//        val application = requireNotNull(this.activity).application
-//
-//        val dataSource = ResultDatabase.getInstance(application).ResultDatabaseDao
-//
-//        val viewModelFactory = ResultViewModelFactory(dataSource, application)
-//
-//        val resultViewModel =
-//            ViewModelProviders.of(
-//                this, viewModelFactory).get(ResultViewModel::class.java)
-//
-//        binding.resultViewModel = resultViewModel
-//
-//        binding.setLifecycleOwner(this)
-//
-//
-////        Navigation
-//        resultViewModel.navigateToResultDetail.observe(viewLifecycleOwner, Observer {result ->
-//            result?.let {
-//                this.findNavController().navigate(
-//                    ResultViewFragmentDirections.actionResultViewFragmentToResultDetail(result.id)
-//                )
-//                resultViewModel.doneNavigating()
-//            }
-//        })
-
-
-
-//        val adapter = ResultViewAdapter(ResultViewListener { result ->
-//            ResultViewModel.onResultClicked(result)
-//        })
-//
-//        binding.resultGrid.adapter = adapter
-//
-//        ResultViewModel.results.observe(viewLifecycleOwner, Observer {
-//            it?.let {
-//                adapter.addHeaderAndSubmitList(it)
-//            }
-//        })
+        this.findNavController().navigate(ResultViewFragmentDirections.actionResultViewFragmentToResultDetail(business.b_ID))
     }
 
     companion object {

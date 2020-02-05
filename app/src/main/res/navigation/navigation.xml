@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation"
-    app:startDestination="@id/resultViewFragment">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    android:label="nav"
+    app:startDestination="@id/result_view_fragment">
     <fragment
-        android:id="@+id/resultViewFragment"
+        android:id="@+id/result_view_fragment"
         android:name="com.example.halp.resultView.ResultViewFragment"
-        android:label="ResultViewFragment" >
+        android:label="result_view_fragment"
+        tools:layout="@layout/result_view_fragment">
         <action
             android:id="@+id/action_resultViewFragment_to_resultDetail"
-            app:destination="@id/resultDetail" />
-        <argument
-            android:name="resultKey"
-            app:argType="string" />
+            app:destination="@id/result_detail_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/resultDetail"
+        android:id="@+id/result_detail_fragment"
         android:name="com.example.halp.resultDetail.resultDetail"
-        android:label="resultDetail" >
-        <action
-            android:id="@+id/action_resultDetail_to_resultViewFragment"
-            app:destination="@id/resultViewFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@+id/resultViewFragment" />
+        android:label="result_detail_fragment">
         <argument
             android:name="resultKey"
             app:argType="string" />
+        <action
+            android:id="@+id/action_resultDetail_to_resultViewFragment"
+            app:destination="@id/result_view_fragment" />
     </fragment>
 </navigation>

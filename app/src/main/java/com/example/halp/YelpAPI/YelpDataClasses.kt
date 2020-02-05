@@ -23,6 +23,7 @@ data class YelpBusinessDetail(
 )
 
 data class YelpBusiness(
+    val b_ID: String,
     val name: String,
     val rating: Double,
     val price: String,
@@ -30,6 +31,7 @@ data class YelpBusiness(
     @SerializedName("distance") val distanceInMeters: Double,
     @SerializedName("image_url") val imageUrl: String,
     val categories: List<YelpCategory>,
+    val coordinates: YelpCoordinates,
     val location: YelpLocation
 ) {
     fun displayDistance(): String {
@@ -40,6 +42,11 @@ data class YelpBusiness(
 
 data class YelpCategory(
     val title: String
+)
+
+data class YelpCoordinates(
+    val latitude: Double,
+    val longitude: Double
 )
 
 data class YelpLocation(

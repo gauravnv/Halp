@@ -18,5 +18,5 @@ public interface YelpService {
     @GET("businesses/")
     fun getBusinessDetails(
         @Header("Authorization") authHeader: String,
-        @Query("id") id: String) : Call<YelpSearchResult>
+        @Query("id") id: String) : Call<YelpBusinessDetail>
 }
