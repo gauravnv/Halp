@@ -7,13 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.halp.MainActivity
 import com.example.halp.R
 import com.example.halp.YelpAPI.YelpBusiness
 import com.example.halp.YelpAPI.YelpSearchResult
 import com.example.halp.YelpAPI.YelpService
+import com.example.halp.resultDetail.RESULT_KEY_EXTRA
+import com.example.halp.resultDetail.ResultDetailFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -71,13 +73,20 @@ class ResultViewFragment : Fragment(), ResultViewAdapter.onItemClickListener {
     }
 
     override fun onItemClicked(business: YelpBusiness) {
-        Toast.makeText(this.context, "Business name ${business.name} \n Location:${business.location} \n ID: ${business.b_ID}",
+        Toast.makeText(this.context, "Business name ${business.name} \n Location:${business.location} \n ID: ${business.id}",
             Toast.LENGTH_LONG)
             .show()
         Log.i("BUSINESS_", business.name)
+        val bundle = Bundle()
+        bundle.putString(RESULT_KEY_EXTRA, business.id)
+        val resultDetailFragment = ResultDetailFragment()
+        resultDetailFragment.arguments = bundle
+        (context as MainActivity).replaceFragment(resultDetailFragment, true)
 
-        this.findNavController().navigate(ResultViewFragmentDirections.actionResultViewFragmentToResultDetail(business.b_ID))
+//        this.findNavController().navigate(ResultViewFragmentDirections.actionResultViewFragmentToResultDetail(business.b_ID))
+
     }
+
 
     companion object {
         private val TAG = "ResultViewFragment"

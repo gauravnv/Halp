@@ -1,9 +1,7 @@
 package com.example.halp.YelpAPI
 
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Query
+import retrofit2.http.*
 
 public interface YelpService {
 
@@ -15,8 +13,8 @@ public interface YelpService {
         @Query("limit") limit: Int,
         @Query("sort_by") distance: String) : Call<YelpSearchResult>
 
-    @GET("businesses/")
+    @GET("businesses/{id}")
     fun getBusinessDetails(
         @Header("Authorization") authHeader: String,
-        @Query("id") id: String) : Call<YelpBusinessDetail>
+        @Path("id") id: String) : Call<YelpBusinessDetail>
 }

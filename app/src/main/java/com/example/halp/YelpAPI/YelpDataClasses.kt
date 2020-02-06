@@ -8,13 +8,13 @@ data class YelpSearchResult(
 )
 
 data class YelpBusinessDetail(
+    val id: String,
     val name: String,
     val rating: Double,
     val price: String,
     val location: YelpLocation,
     val categories: List<YelpCategory>,
     val isClosed: Boolean,
-    @SerializedName("id") val id: String,
     @SerializedName("review_count") val numReviews: Int,
     @SerializedName("distance") val distanceInMeters: Double,
     @SerializedName("image_url") val imageUrl: String,
@@ -23,7 +23,7 @@ data class YelpBusinessDetail(
 )
 
 data class YelpBusiness(
-    val b_ID: String,
+    val id: String,
     val name: String,
     val rating: Double,
     val price: String,

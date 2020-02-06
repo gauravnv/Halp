@@ -16,11 +16,8 @@
     </fragment>
     <fragment
         android:id="@+id/result_detail_fragment"
-        android:name="com.example.halp.resultDetail.resultDetail"
+        android:name="com.example.halp.resultDetail.ResultDetailFragment"
         android:label="result_detail_fragment">
-        <argument
-            android:name="resultKey"
-            app:argType="string" />
         <action
             android:id="@+id/action_resultDetail_to_resultViewFragment"
             app:destination="@id/result_view_fragment" />
