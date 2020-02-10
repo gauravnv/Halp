@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.result_row.view.*
 
 class ResultViewAdapter(val context: Context?,
                         val businesses: List<YelpBusiness>,
-                        val itemClickListener: ResultViewAdapter.onItemClickListener
+                        val itemClickListener: onItemClickListener
 ) :
     RecyclerView.Adapter<ResultViewAdapter.ViewHolder>() {
 
@@ -34,10 +34,6 @@ class ResultViewAdapter(val context: Context?,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val business = businesses[position]
         holder.bind(business, itemClickListener)
-
-//        holder.itemView.setOnClickListener{ view ->
-//            view.findNavController().navigate(R.id.action_resultViewFragment_to_resultDetail)
-//        }
     }
 
 
@@ -73,7 +69,3 @@ class ResultViewAdapter(val context: Context?,
         fun onItemClicked(business: YelpBusiness)
     }
 }
-
-//class ResultViewListener(val clickListener: (resultId: Long) -> Unit) {
-//    fun onClick(result: ResultRow) = clickListener(result.r_id)
-//}

@@ -2,10 +2,15 @@ package com.example.halp.YelpAPI
 
 import com.google.gson.annotations.SerializedName
 
-data class YelpSearchResult(
+data class YelpBusinessesSearchResult(
     @SerializedName("total") val total: Int,
     @SerializedName("businesses") val businesses: List<YelpBusiness>
 )
+
+//data class YelpBusinessDetailResult(
+//    val business: YelpBusinessDetail,
+//    val transactions: List<String>
+//)
 
 data class YelpBusinessDetail(
     val id: String,
@@ -13,13 +18,13 @@ data class YelpBusinessDetail(
     val rating: Double,
     val price: String,
     val location: YelpLocation,
-    val categories: List<YelpCategory>,
-    val isClosed: Boolean,
+//    val categories: List<YelpCategory>,
+    val coordinates: YelpCoordinates,
+    @SerializedName("is_closed") val isClosed: Boolean,
     @SerializedName("review_count") val numReviews: Int,
     @SerializedName("distance") val distanceInMeters: Double,
     @SerializedName("image_url") val imageUrl: String,
-    @SerializedName("transactions") val transactions: String,
-    @SerializedName("businesses") val businesses: List<YelpBusiness>
+    val categories: List<YelpCategory>
 )
 
 data class YelpBusiness(

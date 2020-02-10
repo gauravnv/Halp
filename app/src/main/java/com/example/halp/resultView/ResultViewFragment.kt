@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.halp.MainActivity
 import com.example.halp.R
 import com.example.halp.YelpAPI.YelpBusiness
-import com.example.halp.YelpAPI.YelpSearchResult
+import com.example.halp.YelpAPI.YelpBusinessesSearchResult
 import com.example.halp.YelpAPI.YelpService
 import com.example.halp.resultDetail.RESULT_KEY_EXTRA
 import com.example.halp.resultDetail.ResultDetailFragment
@@ -52,8 +52,8 @@ class ResultViewFragment : Fragment(), ResultViewAdapter.onItemClickListener {
         val yelpService = retrofit.create(YelpService::class.java)
 
         yelpService.searchRestaurants("Bearer $API_KEY", "Bakery", "Toronto", 50, "distance").enqueue(object :
-            Callback<YelpSearchResult> {
-            override fun onResponse(call: Call<YelpSearchResult>, response: Response<YelpSearchResult>) {
+            Callback<YelpBusinessesSearchResult> {
+            override fun onResponse(call: Call<YelpBusinessesSearchResult>, response: Response<YelpBusinessesSearchResult>) {
                 Log.i(TAG, "onResponse $response")
                 val body = response.body()
                 if (body == null) {
@@ -64,7 +64,7 @@ class ResultViewFragment : Fragment(), ResultViewAdapter.onItemClickListener {
                 adapter.notifyDataSetChanged()
             }
 
-            override fun onFailure(call: Call<YelpSearchResult>, t: Throwable) {
+            override fun onFailure(call: Call<YelpBusinessesSearchResult>, t: Throwable) {
                 Log.i(TAG, "onFailure $t")
             }
         })
