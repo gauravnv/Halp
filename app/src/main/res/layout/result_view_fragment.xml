@@ -22,34 +22,55 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/searchForBusiness"
-            android:layout_width="333dp"
-            android:layout_height="54dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_small"
-            android:autofillHints="Sushi"
-            android:background="@drawable/edit_text"
-            android:drawable="@drawable/ic_search"
-            android:ems="10"
-            android:foregroundGravity="center_vertical|center|fill"
-            android:gravity="center|fill|center_vertical"
-            android:hint="@string/search_placeholder"
-            android:inputType="textShortMessage|textLongMessage|textAutoCorrect|textFilter|textPersonName|text|textCapSentences|textAutoComplete|textImeMultiLine"
-            android:padding="@dimen/padding_medium"
-            tools:targetApi="o" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/search_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/search_icon"
-            android:layout_width="0dp"
-            android:layout_height="58dp"
-            android:layout_gravity="center|center_horizontal|center_vertical"
-            android:layout_margin="0dp"
-            android:layout_weight="1.5"
-            android:background="#03830404"
-            android:contentDescription="@android:string/search_go"
-            android:cropToPadding="true"
-            app:srcCompat="@drawable/ic_search" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/search_text_box"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:helperTextEnabled="true"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/search_icon"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/search_for_business"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:autofillHints="Sushi"
+                    android:background="@drawable/edit_text"
+                    android:drawable="@drawable/ic_search"
+                    android:ems="10"
+                    android:hint="@string/search_placeholder"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/search_icon"
+                android:layout_width="60dp"
+                android:layout_height="58dp"
+                android:layout_gravity="center|center_horizontal|center_vertical"
+                android:layout_margin="0dp"
+                android:layout_weight="1.5"
+                android:background="#03830404"
+                android:clickable="true"
+                android:contentDescription="@android:string/search_go"
+                android:cropToPadding="true"
+                app:layout_constraintBottom_toBottomOf="@+id/search_text_box"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/search_text_box"
+                app:srcCompat="@drawable/ic_search" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

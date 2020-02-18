@@ -7,11 +7,6 @@ data class YelpBusinessesSearchResult(
     @SerializedName("businesses") val businesses: List<YelpBusiness>
 )
 
-//data class YelpBusinessDetailResult(
-//    val business: YelpBusinessDetail,
-//    val transactions: List<String>
-//)
-
 data class YelpBusinessDetail(
     val id: String,
     val name: String,
@@ -24,7 +19,8 @@ data class YelpBusinessDetail(
     @SerializedName("review_count") val numReviews: Int,
     @SerializedName("distance") val distanceInMeters: Double,
     @SerializedName("image_url") val imageUrl: String,
-    val categories: List<YelpCategory>
+    val categories: List<YelpCategory>,
+    val hours: List<YelpBusinessHours>
 )
 
 data class YelpBusiness(
@@ -56,4 +52,16 @@ data class YelpCoordinates(
 
 data class YelpLocation(
     @SerializedName("address1") val address: String
+)
+
+data class YelpBusinessHours(
+    val open: List<YelpOpenHours>,
+    @SerializedName("is_open_now") val isOpenNow: Boolean
+)
+
+data class YelpOpenHours(
+    val start: String,
+    val end: String,
+    val day: Int,
+    @SerializedName("is_overnight") val isOvernight: Boolean
 )

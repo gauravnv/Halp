@@ -1,124 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/result_detail_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="4dp"
-    app:navGraph="@navigation/navigation"
-    tools:context=".resultDetail.ResultDetailFragment"
-    tools:layout="@layout/result_detail_fragment">
+    android:fillViewport="true"
+    app:navGraph="@navigation/navigation">
 
-        <ImageView
-            android:id="@+id/business_picture"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:layout_margin="@dimen/margin_medium"
-            android:contentDescription="@string/business_picture"
-            android:foregroundGravity="fill_horizontal|center_vertical|clip_horizontal|center|fill_vertical|clip_vertical|center_horizontal|fill"
-            android:padding="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[4]" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/business_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_medium"
-            android:layout_marginTop="8dp"
-            android:gravity="clip_horizontal|center|clip_vertical|center_horizontal|fill|fill_horizontal|center_vertical|fill_vertical"
-            android:padding="@dimen/padding_med_large"
-            android:text="@string/business_name_string"
-            android:textSize="@dimen/text_bold_size"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/business_picture" />
-
-        <RatingBar
-            android:id="@+id/business_detail_rating"
-            style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:forceDarkAllowed="false"
-            android:numStars="5"
-            android:progressBackgroundTint="@color/gray_500"
-            android:progressTint="@color/red"
-            android:rating="4.5"
-            android:stepSize="0.5"
-            app:layout_constraintStart_toStartOf="@+id/business_picture"
-            app:layout_constraintTop_toBottomOf="@+id/business_name" />
-
-        <TextView
-            android:id="@+id/num_reviews_text"
-            android:layout_width="124dp"
-            android:layout_height="wrap_content"
-            android:gravity="clip_horizontal|center|clip_vertical|center_horizontal|fill|fill_horizontal|center_vertical|fill_vertical"
-            android:padding="@dimen/padding_small"
-            android:text="@string/num_reviews_string"
-            android:textSize="@dimen/text_medium_size"
-            app:layout_constraintBottom_toBottomOf="@+id/business_detail_rating"
-            app:layout_constraintStart_toEndOf="@+id/business_detail_rating"
-            app:layout_constraintTop_toBottomOf="@+id/business_name" />
-
-        <TextView
-            android:id="@+id/business_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/string_dollar_amount"
-            android:textAlignment="viewEnd"
-            android:textColor="@android:color/holo_green_dark"
-            android:textSize="@dimen/text_medium_size"
-            app:layout_constraintBottom_toTopOf="@+id/open_hours_info"
-            app:layout_constraintStart_toStartOf="@+id/business_picture"
-            app:layout_constraintTop_toBottomOf="@+id/business_detail_rating" />
-
-        <TextView
-            android:id="@+id/business_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:text="@string/business_category_string"
-            android:textColor="@android:color/darker_gray"
-            app:layout_constraintStart_toEndOf="@+id/business_price"
-            app:layout_constraintTop_toBottomOf="@+id/business_detail_rating" />
-
-        <TextView
-            android:id="@+id/business_address"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/result_detail_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_medium"
-            android:padding="@dimen/padding_medium"
-            android:text="@string/business_address"
-            app:layout_constraintBottom_toTopOf="@+id/mapView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/business_picture" />
+            android:layout_margin="4dp"
+            tools:context=".resultDetail.ResultDetailFragment"
+            tools:layout="@layout/result_detail_fragment">
 
-        <TextView
-            android:id="@+id/open_hours_info"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_medium"
-            android:gravity="clip_horizontal|center|clip_vertical|center_horizontal|fill|fill_horizontal|center_vertical|fill_vertical"
-            android:padding="@dimen/padding_small"
-            android:text="@string/open_hours_info_string"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/business_picture"
-            app:layout_constraintTop_toBottomOf="@+id/business_category" />
+            <ImageView
+                android:id="@+id/business_picture"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:contentDescription="@string/business_picture"
+                android:foregroundGravity="fill_horizontal|center_vertical|clip_horizontal|center|fill_vertical|clip_vertical|center_horizontal|fill"
+                android:padding="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/backgrounds/scenic[4]" />
 
-        <com.google.android.gms.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:layout_marginTop="270dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/business_picture" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/business_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_marginTop="8dp"
+                android:text="@string/business_name_string"
+                android:textSize="@dimen/text_bold_size"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/business_picture" />
+
+            <RatingBar
+                android:id="@+id/business_detail_rating"
+                style="@style/Widget.AppCompat.RatingBar.Indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:forceDarkAllowed="false"
+                android:numStars="5"
+                android:progressBackgroundTint="@color/gray_500"
+                android:progressTint="@color/red"
+                android:rating="4.5"
+                android:stepSize="0.5"
+                app:layout_constraintStart_toStartOf="@+id/business_picture"
+                app:layout_constraintTop_toBottomOf="@+id/business_name" />
+
+            <TextView
+                android:id="@+id/num_reviews_text"
+                android:layout_width="124dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_small"
+                android:text="@string/num_reviews_string"
+                android:textSize="@dimen/text_medium_size"
+                app:layout_constraintBottom_toBottomOf="@+id/business_detail_rating"
+                app:layout_constraintStart_toEndOf="@+id/business_detail_rating"
+                app:layout_constraintTop_toBottomOf="@+id/business_name" />
+
+            <TextView
+                android:id="@+id/business_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="@string/string_dollar_amount"
+                android:textAlignment="viewEnd"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="@dimen/text_medium_size"
+                app:layout_constraintBottom_toTopOf="@+id/open_hours_info"
+                app:layout_constraintStart_toStartOf="@+id/business_picture"
+                app:layout_constraintTop_toBottomOf="@+id/business_detail_rating" />
+
+            <TextView
+                android:id="@+id/business_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="@string/business_category_string"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintStart_toEndOf="@+id/business_price"
+                app:layout_constraintTop_toBottomOf="@+id/business_detail_rating" />
+
+            <TextView
+                android:id="@+id/business_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:text="@string/business_address"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/business_picture"
+                app:layout_constraintTop_toBottomOf="@+id/open_hours_info" />
+
+            <TextView
+                android:id="@+id/business_is_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/business_is_open"
+                app:layout_constraintBottom_toBottomOf="@+id/open_hours_info"
+                app:layout_constraintStart_toStartOf="@+id/business_picture"
+                app:layout_constraintTop_toBottomOf="@+id/business_price" />
+
+            <TextView
+                android:id="@+id/open_hours_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/open_hours_info_string"
+                app:layout_constraintStart_toEndOf="@+id/business_is_open"
+                app:layout_constraintTop_toBottomOf="@+id/business_category" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintStart_toStartOf="@+id/business_picture"
+                app:layout_constraintTop_toBottomOf="@+id/business_address" />
+
+            <com.google.android.gms.maps.MapView
+                android:id="@+id/mapView"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/business_picture"
+                app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+            <EditText
+                android:id="@+id/REVIEWS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/reviews"
+                android:ems="20"
+                android:hint="@string/reviews"
+                android:inputType="textPersonName"
+                android:text="@string/reviews"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mapView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/review_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/mapView"
+                app:layout_constraintTop_toBottomOf="@+id/REVIEWS" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
+

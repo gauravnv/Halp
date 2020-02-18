@@ -5,11 +5,19 @@
     <string name="business_name_string"> Bake n\' Flake </string>
     <string name="dollars_and_types_string">$$$$ - Bakeries, Cafes, Desserts</string>
     <string name="num_reviews_string">7451 Reviews</string>
-    <string name="open_hours_info_string">Open until 6:30 PM</string>
+    <string name="open_hours_info_string">. until 6:30 PM</string>
     <string name="search_placeholder">Search for Business</string>
     <string name="text_3">This is where the info about the business goes</string>
     <string name="business_address">155 Wellington St.</string>
     <string name="dollar_amount">$$$$$</string>
     <string name="string_dollar_amount">$$$$</string>
     <string name="business_category_string">Bakery, Breakfast</string>
+    <string name="business_is_open">Open</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="reviewer_image">Reviewer Image</string>
+    <string name="reviewer_name">Gaurav V.</string>
+    <string name="review_date">2020-01-14</string>
+    <string name="review_text">Plenty of space for new hire or goodbye lunches. If you forgot to make a reservation, likely you can still get in last minute.</string>
+    <string name="reviews">Reviews</string>
+    <string name="content_description_for_review_section">Review section indicator</string>
 </resources>

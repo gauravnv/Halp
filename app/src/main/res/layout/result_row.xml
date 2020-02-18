@@ -53,12 +53,12 @@
         android:contentDescription="@string/star_rating"
         android:forceDarkAllowed="false"
         android:numStars="5"
+        android:progressBackgroundTint="@color/gray_500"
+        android:progressTint="@color/red"
         android:rating="4.5"
         android:stepSize="0.5"
         app:layout_constraintStart_toStartOf="@+id/business_name"
-        app:layout_constraintTop_toBottomOf="@+id/business_name"
-        android:progressTint="@color/red"
-        android:progressBackgroundTint="@color/gray_500" />
+        app:layout_constraintTop_toBottomOf="@+id/business_name" />
 
 
     <TextView
@@ -101,5 +101,15 @@
         android:textColor="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="@+id/business_name"
         app:layout_constraintTop_toBottomOf="@+id/business_address" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/business_picture"
+        app:layout_constraintTop_toBottomOf="@+id/business_picture" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

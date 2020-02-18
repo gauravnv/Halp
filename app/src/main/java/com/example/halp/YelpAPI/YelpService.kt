@@ -10,6 +10,8 @@ interface YelpService {
         @Header("Authorization") authHeader: String,
         @Query("term") searchTerm: String,
         @Query("location") location: String,
+//        @Query("latitude") latitude: Double,
+//        @Query("longitude") longitude: Double,
         @Query("limit") limit: Int,
         @Query("sort_by") distance: String) : Call<YelpBusinessesSearchResult>
 
@@ -17,4 +19,10 @@ interface YelpService {
     fun getBusinessDetails(
         @Header("Authorization") authHeader: String,
         @Path("id") id: String) : Call<YelpBusinessDetail>
+
+    @GET("businesses/{id}/reviews")
+    fun getBusinessReviews(
+        @Header("Authorization") authHeader: String,
+        @Path("id") id: String) : Call<YelpReviewDataClass>
+
 }
